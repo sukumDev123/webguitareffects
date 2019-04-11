@@ -13,7 +13,7 @@ const setUpdata = () => {
     }
   }
 }
-
+let playD = false
 /**
  * This DGI is document.getElementById
  * @param {*} nameId
@@ -28,8 +28,10 @@ DGI("delayTimeRange").addEventListener("change", e => {
 
 DGI("play").addEventListener("click", e => {
   e.preventDefault()
+
   const source = audioCtx.createBufferSource()
-  if (bufferB) {
+
+  if (bufferB !== undefined) {
     source.buffer = bufferB
     source.connect(audioCtx.destination)
     const setUp = setUpdata()
@@ -54,5 +56,7 @@ DGI("play").addEventListener("click", e => {
     }
 
     source.start()
+  } else {
+    alert("Choose your sound.")
   }
 })

@@ -1,4 +1,5 @@
 const audioCtx = new AudioContext()
+let bufferB = undefined
 const fileInput = () => {
   var reader1 = new FileReader()
   reader1.onload = function(ev) {
