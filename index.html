@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <header name = "Access-Control-Allow-Origin" value = "*" />
+    <style>
+      body {
+        background: rgb(37, 51, 59)
+      }
+      .backDiv {
+        padding: 20px;
+        width:70%;
+        margin:auto;
+        color: white;
+      }
+      .text-center{
+        text-align: center
+      }
+      .divG{
+       margin-bottom:10px;
+      }
+      .form_gg{
+        text-align: center;
+        margin:5%;
+        padding: 20px;
+        border: 0.5px solid white;
+        box-shadow: 0px 15px 1px 10px rgba(255, 255, 255, 0.562)
+      }
+      #play {
+        padding: 20px;
+        width: 120px;
+        cursor: pointer;
+      }
+      #play:hover{
+        background: rgba(0,0,0,0);
+        border:1px solid white;
+        color:white
+      }
+      .subForm{
+        text-align: left;
+        margin: auto;
+        width: 60%;
+        padding: 20px;
+        /* font-size: 20px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="backDiv">
+      <h2 class="text-center">Testing a guitar converters</h2>
+      <p>A guitar converters can make effects sound and delay sound <br> Firsting test time <br> This test can do <br> </p> 
+      <ul>  
+        <li>Delay sound of guitar and change delay time.</li>
+        <li>Creating sound on new wave to cover a old wave will can born new wave and can convert sound.</li>
+      </ul>
+      <h5>How to : </h5>
+      <ul>
+        <li>
+          Step one : You must select file sound from your drive.
+        </li>
+        <li>
+          Step two : Clicking to play button, if you don't want to effects and delay are play, The sound will play original a guitar sound. <br> 
+          If you want to effects or delay you must to choose checkbox "Open effects" for open effects and you can select type of sound . Type one is Highpass and two is Lowpass. <br>
+          if you want to delay sound you must select "Open Delay" to open delay and you can change delay time with range for change delay time is you need.
+        </li>
+        
+      </ul>
+        <form class="form_gg">
+           
+           <div class="subForm">
+            <h3> Choose you a guitar sound to play: </h3>
+
+              <div class="divG">
+                   <input
+                   type="file"
+                   onchange="fileInput()"
+                   id="fileVedio"
+     
+                 />
+                </div>
+              <div>
+                  <input type="checkbox"  id="effects" /> <small>Open Effects</small>
+                  <div>
+                    <!-- <input type="range" value="1" min="0" max="1"> -->
+                    <select  id="effectTypeGain">
+                      <option value="highpass" >highpass</option>
+                      <option value="lowpass" >lowpass</option>
+                    </select>
+                  </div>
+                 </div>
+                 <div>
+                  <input type="checkbox" id="delay" /> <small> Open Delay</small>
+                  <div style="padding: 20px;">
+                      <small>Delay Time  : <strong id="delayTimeShow" >123</strong></small>
+                     
+                      <div>
+                          <input type="range" id="delayTimeRange"  /> 
+                      </div>
+            
+                  </div>
+            
+                 </div>
+            
+           </div>
+            <button id="play"> Play </button>
+            <!-- <button type="button" id="original">original</button>
+            <button type="button" id="effects">effects low</button>
+            <button type="button" id="effectsHeight">effects height</button>
+      
+            <button type="button" id="delayBtn">delay</button>
+            <button type="button" id="all">all</button> -->
+      
+          </form>
+    </div>
+    <!-- <div id="audio_box"></div>
+    <canvas id="analyser_render"></canvas> -->
+    <script src="./modules/init.js"></script>
+    <!-- <script src="./modules/onM.js"></script> -->
+
+    <script src="./modules/distortionNode.js"></script>
+
+    <script src="./modules/delayNode.js"></script>
+
+    <script src="start.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
