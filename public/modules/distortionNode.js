@@ -12,26 +12,28 @@ function makeDistortionCurve(amount) {
 }
 
 const distortionNode = (
-  bufferB,
+  audioCtx,
   fillterType,
   filterFeq,
   feedBackGain = 0.8
 ) => {
-  const source = audioCtx.createBufferSource()
-  source.buffer = bufferB
-
   const biq = audioCtx.createBiquadFilter()
   biq.type = fillterType
   biq.frequency.value = filterFeq
 
   const distortionGainNode = audioCtx.createGain()
-  distortionGainNode.gain.value = feedBackGain
 
   const distortionNode = audioCtx.createWaveShaper()
   distortionNode.curve = makeDistortionCurve(400)
   //   distortionNode.oversample = "4x"
+
+  const feedBack = audioCtx.createGain()
+
+  feedBack.gain.value = feedBackGain
   distortionNode.connect(biq)
   biq.connect(distortionGainNode)
+  feedBack.connect(distortionNode)
+
   distortionGainNode.connect(audioCtx.destination)
   //   distortionGainNode.connect(audioCtx.destination)
   //   distortionGainNode.connect(distortionNode)

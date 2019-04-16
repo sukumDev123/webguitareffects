@@ -1,4 +1,4 @@
-const delayNade = (bufferB, delayTime, filterF, feedbackIn) => {
+const delayNade = (audioCtx, delayTime, filterF, feedbackIn) => {
   // const source2 = audioCtx.createBufferSource()
   const delay = audioCtx.createDelay()
 
